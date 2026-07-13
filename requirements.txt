@@ -1,0 +1,7 @@
+FastAPI==0.139.0
+Pydantic==2.13.4
+SQLAlchemy==2.0.51
+psycopg==3.3.4
+pwdlib[argon2]==0.3.0
+Uvicorn==0.50.0
+python-dotenv==1.0.1
