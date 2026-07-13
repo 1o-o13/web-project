@@ -33,11 +33,7 @@ def login(data: schemas.SignupIn, db: Session = Depends(get_db)):
     return response
 
 @router.post("/logout", response_model=dict)
-def logout(user: models.User = Depends(get_current_user), db: Session = Depends(get_db)):
-    session_id = None
-    for cookie_name in ["session_id"]:
-        session_id = cookie_name
-        break
+def logout(session_id: str | None = Cookie(default=None), db: Session = Depends(get_db)):
     if session_id:
         crud.delete_login_session(db, session_id)
 

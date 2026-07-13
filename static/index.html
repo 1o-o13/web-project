@@ -8,37 +8,55 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; }
 
-        header { background: #2c3e50; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
-        header h1 { font-size: 24px; }
-        header .user-info { font-size: 14px; }
-        header button { background: #e74c3c; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 4px; }
-        header button:hover { background: #c0392b; }
+        header { background: #1e3a8a; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; border-radius: 8px; margin: 10px; }
+        header h1 { font-size: 20px; font-weight: bold; }
+        header .user-info { font-size: 14px; display: flex; gap: 15px; align-items: center; }
+        header button { background: #3b82f6; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 4px; font-weight: bold; }
+        header button:hover { background: #2563eb; }
 
         main { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
 
-        .section { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .section h2 { margin-bottom: 15px; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .admin-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
-        input, select, button { padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; }
-        input:focus, select:focus { outline: none; border-color: #3498db; }
-        button { background: #3498db; color: white; cursor: pointer; border: none; }
-        button:hover { background: #2980b9; }
-        button.danger { background: #e74c3c; }
-        button.danger:hover { background: #c0392b; }
-        button.success { background: #27ae60; }
-        button.success:hover { background: #229954; }
+        .section { background: white; padding: 20px; border-radius: 8px; }
 
-        .form-group { margin-bottom: 15px; display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; }
-        .form-group label { display: flex; flex-direction: column; gap: 5px; flex: 1; min-width: 150px; }
-        .form-group label span { font-weight: bold; color: #333; }
+        .section.add-contact { border: 3px solid #d946ef; }
+        .section.search { border: 3px solid #06b6d4; }
+        .section.categories { border: 3px solid #3b82f6; }
+        .section.contacts { border: 3px solid #3b82f6; grid-column: 1; }
 
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        table th { background: #ecf0f1; padding: 10px; text-align: left; font-weight: bold; }
-        table td { padding: 10px; border-bottom: 1px solid #ecf0f1; }
-        table tr:hover { background: #f9f9f9; }
-        table button { padding: 5px 10px; font-size: 12px; margin-right: 5px; }
+        .section h2 { margin-bottom: 15px; color: #1e3a8a; font-size: 16px; font-weight: bold; }
+        .section h3 { margin-top: 15px; margin-bottom: 10px; color: #333; font-size: 14px; font-weight: bold; }
 
-        .alert { padding: 10px; border-radius: 4px; margin-bottom: 10px; display: none; }
+        input, select { padding: 8px 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px; }
+        input:focus, select:focus { outline: none; border-color: #3b82f6; }
+
+        button { padding: 8px 15px; border-radius: 4px; font-size: 13px; font-weight: bold; cursor: pointer; border: none; }
+
+        button.btn-add-contact { background: #a855f7; color: white; padding: 10px 20px; width: 100%; margin-top: 10px; }
+        button.btn-add-contact:hover { background: #9333ea; }
+
+        button.btn-add-category { background: #22c55e; color: white; }
+        button.btn-add-category:hover { background: #16a34a; }
+
+        button.btn-search { background: #3b82f6; color: white; }
+        button.btn-search:hover { background: #2563eb; }
+
+        button.btn-edit { background: #3b82f6; color: white; padding: 4px 8px; font-size: 12px; margin-right: 4px; }
+        button.btn-delete { background: #ef4444; color: white; padding: 4px 8px; font-size: 12px; }
+
+        .form-group { margin-bottom: 12px; display: flex; gap: 10px; align-items: flex-end; }
+        .form-group label { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+        .form-group label span { font-size: 12px; font-weight: bold; color: #333; }
+        .form-group input, .form-group select { flex: 1; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+        table th { background: #f3f4f6; padding: 8px; text-align: left; font-weight: bold; border-bottom: 1px solid #e5e7eb; }
+        table td { padding: 8px; border-bottom: 1px solid #e5e7eb; }
+        table tr:hover { background: #f9fafb; }
+        table button { padding: 4px 8px; font-size: 12px; }
+
+        .alert { padding: 10px; border-radius: 4px; margin-bottom: 10px; display: none; font-size: 13px; }
         .alert.success { background: #d4edda; color: #155724; }
         .alert.error { background: #f8d7da; color: #721c24; }
         .alert.info { background: #d1ecf1; color: #0c5460; }
@@ -46,23 +64,26 @@
         .hidden { display: none !important; }
 
         #loginSection { max-width: 400px; margin: 50px auto; padding: 30px; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        #loginSection h1 { text-align: center; margin-bottom: 20px; color: #2c3e50; }
+        #loginSection h1 { text-align: center; margin-bottom: 20px; color: #1e3a8a; }
         #loginSection .tab-buttons { display: flex; gap: 10px; margin-bottom: 20px; }
-        #loginSection .tab-buttons button { flex: 1; }
+        #loginSection .tab-buttons button { flex: 1; background: #e5e7eb; color: #333; }
+        #loginSection .tab-buttons button.active { background: #3b82f6; color: white; }
         #loginSection .tab { display: none; }
         #loginSection .tab.active { display: block; }
 
-        .search-box { display: flex; gap: 10px; margin-bottom: 15px; }
-        .search-box input { flex: 1; }
-        .search-box button { width: auto; }
+        .search-group { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-end; }
+        .search-group input { flex: 1; }
+
+        .category-input-group { display: flex; gap: 10px; margin-top: 10px; }
+        .category-input-group input { flex: 1; }
+
+        .note { font-size: 12px; color: #666; margin-top: 8px; }
     </style>
 </head>
 <body>
     <!-- 헤더 -->
     <header id="header" class="hidden">
-        <div>
-            <h1>연락처 관리 서비스</h1>
-        </div>
+        <h1>연락처 관리 서비스</h1>
         <div class="user-info">
             <span id="username"></span>님
             <button onclick="logout()">로그아웃</button>
@@ -93,7 +114,7 @@
                         <input type="password" id="loginPassword" placeholder="4~20자">
                     </label>
                 </div>
-                <button class="success" onclick="login()" style="width: 100%;">로그인</button>
+                <button class="btn-search" onclick="login()" style="width: 100%;">로그인</button>
             </div>
 
             <!-- 회원가입 탭 -->
@@ -111,82 +132,102 @@
                         <input type="password" id="signupPassword" placeholder="4~20자">
                     </label>
                 </div>
-                <button class="success" onclick="signup()" style="width: 100%;">회원가입</button>
+                <button class="btn-search" onclick="signup()" style="width: 100%;">회원가입</button>
             </div>
         </section>
 
         <!-- 관리 화면 (로그인 후) -->
         <div id="adminSection" class="hidden">
-            <!-- 카테고리 관리 섹션 -->
-            <section>
-                <h2>📂 카테고리 관리</h2>
-                <div class="form-group">
-                    <input type="text" id="newCategoryName" placeholder="새 카테고리 이름" style="flex: 1;">
-                    <button class="success" onclick="addCategory()">➕ 추가</button>
-                </div>
-                <table id="categoryTable">
-                    <thead>
-                        <tr>
-                            <th>카테고리</th>
-                            <th>작업</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </section>
+            <div class="admin-container">
+                <!-- 왼쪽: 연락처 추가 -->
+                <div>
+                    <!-- 연락처 추가 섹션 -->
+                    <section class="section add-contact">
+                        <h2>연락처 추가 (POST /contacts)</h2>
+                        <div class="form-group">
+                            <label>
+                                <span>이름</span>
+                                <input type="text" id="contactName" placeholder="1~5자">
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <span>전화번호</span>
+                                <input type="text" id="contactPhone" placeholder="01012345678">
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <span>주소</span>
+                                <input type="text" id="contactAddr" placeholder="선택사항">
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <span>종류</span>
+                                <select id="contactCategory"></select>
+                            </label>
+                        </div>
+                        <button class="btn-add-contact" onclick="addContact()">추가</button>
+                    </section>
 
-            <!-- 연락처 추가 섹션 -->
-            <section>
-                <h2>➕ 연락처 추가</h2>
-                <div class="form-group">
-                    <label>
-                        <span>이름</span>
-                        <input type="text" id="contactName" placeholder="1~5자">
-                    </label>
-                    <label>
-                        <span>전화번호</span>
-                        <input type="text" id="contactPhone" placeholder="010########">
-                    </label>
+                    <!-- 검색 섹션 -->
+                    <section class="section search">
+                        <div class="search-group">
+                            <input type="text" id="searchName" placeholder="이름으로 검색 (예시)">
+                            <button class="btn-search" onclick="searchContacts()">검색/정렬</button>
+                        </div>
+                    </section>
                 </div>
-                <div class="form-group">
-                    <label>
-                        <span>주소</span>
-                        <input type="text" id="contactAddr" placeholder="선택사항" style="flex: 1;">
-                    </label>
-                    <label>
-                        <span>종류</span>
-                        <select id="contactCategory"></select>
-                    </label>
-                </div>
-                <button class="success" onclick="addContact()" style="width: 100%;">➕ 연락처 추가</button>
-            </section>
 
-            <!-- 연락처 목록 섹션 -->
-            <section>
-                <h2>📋 연락처 목록 (총 <span id="totalCount">0</span>건)</h2>
-                <div class="search-box">
-                    <input type="text" id="searchName" placeholder="이름으로 검색" onkeyup="searchContacts()">
-                    <select id="filterCategory" onchange="filterByCategory()" style="flex: 0;">
-                        <option value="">종류 전체</option>
-                    </select>
-                    <button onclick="loadContacts()">🔄 새로고침</button>
+                <!-- 오른쪽: 카테고리 + 연락처 목록 -->
+                <div>
+                    <!-- 카테고리 관리 섹션 -->
+                    <section class="section categories">
+                        <h2>카테고리 관리 (SCR-003)</h2>
+                        <table id="categoryTable">
+                            <thead>
+                                <tr>
+                                    <th>카테고리</th>
+                                    <th>작업</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <h3>새 카테고리 (1~10자)</h3>
+                        <div class="category-input-group">
+                            <input type="text" id="newCategoryName" placeholder="">
+                            <button class="btn-add-category" onclick="addCategory()">추가</button>
+                        </div>
+                        <p class="note">※ 카테고리가 변경되면 추가 중인 연락처도 함께 변경됩니다</p>
+                    </section>
+
+                    <!-- 연락처 목록 섹션 -->
+                    <section class="section contacts">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h2>연락처 목록 - 총 <span id="totalCount">0</span>건 (GET /contacts 'n' total)</h2>
+                            <select id="filterCategory" onchange="filterByCategory()" style="width: 150px;">
+                                <option value="">종류 전체</option>
+                            </select>
+                        </div>
+                        <table id="contactTable">
+                            <thead>
+                                <tr>
+                                    <th>이름</th>
+                                    <th>전화</th>
+                                    <th>주소</th>
+                                    <th>종류</th>
+                                    <th>작업</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </section>
                 </div>
-                <table id="contactTable">
-                    <thead>
-                        <tr>
-                            <th>이름</th>
-                            <th>전화</th>
-                            <th>주소</th>
-                            <th>종류</th>
-                            <th>작업</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </section>
+            </div>
 
             <!-- 전역 경고 메시지 -->
-            <div class="alert" id="globalAlert"></div>
+            <div class="alert" id="globalAlert" style="margin-top: 20px;"></div>
         </div>
     </main>
 

@@ -1,0 +1,72 @@
+INFO:     127.0.0.1:59419 - "POST /auth/signup HTTP/1.1" 201 Created
+INFO:     127.0.0.1:59420 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59421 - "GET /auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59422 - "GET /categories HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59424 - "GET /auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59425 - "GET /categories HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59427 - "POST /contacts HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:59428 - "GET /contacts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59429 - "POST /contacts HTTP/1.1" 201 Created
+INFO:     127.0.0.1:59430 - "GET /contacts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59431 - "POST /contacts HTTP/1.1" 201 Created
+INFO:     127.0.0.1:59432 - "POST /contacts HTTP/1.1" 201 Created
+INFO:     127.0.0.1:59433 - "GET /contacts?name=John HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59434 - "GET /contacts?category_id=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59437 - "DELETE /categories/2 HTTP/1.1" 409 Conflict
+INFO:     127.0.0.1:59438 - "DELETE /categories/3 HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:59439 - "GET /categories HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59440 - "POST /auth/signup HTTP/1.1" 201 Created
+INFO:     127.0.0.1:59441 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59442 - "GET /categories HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59443 - "GET /contacts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59444 - "GET /contacts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59445 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59446 - "POST /auth/logout HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59447 - "GET /auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:59448 - "GET /auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59449 - "POST /contacts HTTP/1.1" 201 Created
+INFO:     127.0.0.1:59450 - "POST /contacts HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:59451 - "POST /auth/signup HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:59452 - "POST /contacts HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59453 - "POST /contacts HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:59454 - "POST /contacts HTTP/1.1" 201 Created
+INFO:     127.0.0.1:59455 - "GET /contacts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59456 - "GET /contacts?name=Dup HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59457 - "POST /contacts HTTP/1.1" 409 Conflict
+INFO:     127.0.0.1:59463 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59463 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59463 - "GET /auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:59465 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59466 - "POST /auth/signup HTTP/1.1" 201 Created
+INFO:     127.0.0.1:59466 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59466 - "GET /auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59466 - "GET /categories HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59466 - "GET /contacts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59469 - "POST /contacts HTTP/1.1" 201 Created
+INFO:     127.0.0.1:59469 - "GET /contacts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59469 - "GET /contacts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59501 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59501 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59501 - "GET /auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:59501 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59501 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59501 - "GET /auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59501 - "GET /categories HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59501 - "GET /contacts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59522 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59522 - "GET /static/app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59522 - "GET /auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59522 - "GET /categories HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59522 - "GET /contacts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59522 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59522 - "GET /auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59522 - "GET /categories HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59522 - "GET /contacts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59522 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59522 - "GET /auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59522 - "GET /categories HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59522 - "GET /contacts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59522 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59522 - "GET /auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59522 - "GET /categories HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59522 - "GET /contacts HTTP/1.1" 200 OK
