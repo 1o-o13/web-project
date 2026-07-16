@@ -2,9 +2,12 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pathlib import Path
+from dotenv import load_dotenv
 import models
 from database import engine
 from routers import auth, contacts, categories
+
+load_dotenv()
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -26,4 +29,4 @@ async def root():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run(app, host="127.0.0.1", port=8000)

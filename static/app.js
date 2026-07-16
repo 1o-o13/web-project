@@ -121,6 +121,21 @@ async function logout() {
     await checkLogin();
 }
 
+async function showMyInfo() {
+    try {
+        const res = await fetch(`${API_BASE}/auth/me`, { credentials: "include" });
+        if (res.ok) {
+            const user = await res.json();
+            const createdDate = new Date(user.created_at).toLocaleString('ko-KR');
+            alert(`📋 내 정보\n\n아이디: ${user.username}\n가입일: ${createdDate}`);
+        } else {
+            showAlert(document.getElementById("globalAlert"), "내정보를 불러올 수 없습니다", "error");
+        }
+    } catch (e) {
+        showAlert(document.getElementById("globalAlert"), "네트워크 오류: " + e.message, "error");
+    }
+}
+
 // ===== 카테고리 관리 =====
 async function loadCategories() {
     try {
@@ -302,7 +317,46 @@ async function addContact() {
 }
 
 async function editContact(id) {
-    alert("연락처 수정은 추후 구현 예정입니다");
+    const contact = (await fetch(`${API_BASE}/contacts`, { credentials: "include" }).then(r => r.json())).items.find(c => c.id === id);
+    if (!contact) {
+        showAlert(document.getElementById("globalAlert"), "연락처를 찾을 수 없습니다", "error");
+        return;
+    }
+
+    const newName = prompt(`이름 (현재: ${contact.name}):`, contact.name);
+    if (newName === null || newName === contact.name) return;
+
+    const newPhone = prompt(`전화번호 (현재: ${contact.phone}):`, contact.phone);
+    if (newPhone === null || newPhone === contact.phone) {
+        if (newName === contact.name) return;
+    }
+
+    const newAddr = prompt(`주소 (현재: ${contact.addr}):`, contact.addr);
+    if (newAddr === null) return;
+
+    try {
+        const updateData = {};
+        if (newName && newName !== contact.name) updateData.name = newName;
+        if (newPhone && newPhone !== contact.phone) updateData.phone = newPhone;
+        if (newAddr !== undefined) updateData.addr = newAddr;
+
+        const res = await fetch(`${API_BASE}/contacts/${id}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updateData),
+            credentials: "include"
+        });
+
+        if (res.ok) {
+            showAlert(document.getElementById("globalAlert"), "연락처가 수정되었습니다", "success");
+            await loadContacts();
+        } else {
+            const err = await res.json();
+            showAlert(document.getElementById("globalAlert"), err.detail || "수정 실패", "error");
+        }
+    } catch (e) {
+        showAlert(document.getElementById("globalAlert"), "네트워크 오류: " + e.message, "error");
+    }
 }
 
 async function deleteContact(id) {

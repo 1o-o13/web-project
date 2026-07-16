@@ -40,3 +40,19 @@ uvicorn main:app --reload --host 127.0.0.1 --port 8000
 - [ ] 8단계: Main (앱)
 - [ ] 9단계: Static (화면)
 - [ ] 10단계: 테스트 & 실행
+
+<!-- 
+# 1. 터미널 열고 프로젝트 폴더로 이동
+cd C:\big21\web_project
+
+# 2. 가상 환경 활성화
+.\venv\Scripts\Activate.ps1
+
+# 3. 패키지 설치 (이미 설치되어 있으면 스킵 가능)
+pip install -r requirements.txt
+
+# 4. 서버 실행
+python main.py
+
+# 5. 브라우저에서 접속 (새 터미널에서)
+start "http://127.0.0.1:8000" -->
